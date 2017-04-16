@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<title>Mark Jaffe's Resume - Creative Solutions to your Development Headaches</title>
+	        <link rel="stylesheet" type="text/css" href="styles.css">
+ 	</head>
+	<body ng-controller="PeopleController">
+                <h1>Mark Jaffe's Resume - Creative Solutions to your Development Headaches</h1>
+		<div class="wrapper" ng-controller="PeopleController">
+			<div class="contact-item" ng-repeat="person in playerList| orderBy:'index'">
+				<div class="name">{{person.company}} - <span class="titl">{{person.title}} </span>
+                		</div>
+            <table class="city">
+              <tr>
+                <td>{{person.location}}</td>
+              </tr>
+            </table>
+			<span class="duties">{{person.duties}} </span>
+            <table class="city">
+              <tr>
+                <td>{{person.dates}}</td>
+              </tr>
+            </table>
+			</div>
+		</div>
+		<br/>
+		<center>
+			<button ng-click="ShowForm()" ng-hide="formVisibility"> Add Contact</button>
+		</center>
+		<div ng-show="formVisibility" class="wrapper">
+		<h2>Add a Contact</h2>
+		Name: <input type="text" ng-model="newPerson.name"></input>
+		Phone: <input type="text" ng-model="newPerson.phone"></input>
+		City: <input type="text" ng-model="newPerson.city"></input>
+		<button ng-click="Save()">Save</button>
+		</div>
+			<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+			<script>window.angular || document.write('<script src="lib/angular/angular.min.js"><\/script>');</script>
+			<script src= "scripts.js" type="text/javascript"></script>
+	</body>
+</html>
